@@ -1,0 +1,11 @@
+C:\Users\tuannguyenanh\source\repos\ASPNETCore2MVC\ASPNETCore2MVC\bin\Debug\netcoreapp2.0\ASPNETCore2MVC.deps.json
+C:\Users\tuannguyenanh\source\repos\ASPNETCore2MVC\ASPNETCore2MVC\bin\Debug\netcoreapp2.0\ASPNETCore2MVC.runtimeconfig.json
+C:\Users\tuannguyenanh\source\repos\ASPNETCore2MVC\ASPNETCore2MVC\bin\Debug\netcoreapp2.0\ASPNETCore2MVC.runtimeconfig.dev.json
+C:\Users\tuannguyenanh\source\repos\ASPNETCore2MVC\ASPNETCore2MVC\bin\Debug\netcoreapp2.0\ASPNETCore2MVC.dll
+C:\Users\tuannguyenanh\source\repos\ASPNETCore2MVC\ASPNETCore2MVC\bin\Debug\netcoreapp2.0\ASPNETCore2MVC.pdb
+C:\Users\tuannguyenanh\source\repos\ASPNETCore2MVC\ASPNETCore2MVC\obj\Debug\netcoreapp2.0\ASPNETCore2MVC.csproj.CoreCompileInputs.cache
+C:\Users\tuannguyenanh\source\repos\ASPNETCore2MVC\ASPNETCore2MVC\obj\Debug\netcoreapp2.0\ASPNETCore2MVC.AssemblyInfoInputs.cache
+C:\Users\tuannguyenanh\source\repos\ASPNETCore2MVC\ASPNETCore2MVC\obj\Debug\netcoreapp2.0\ASPNETCore2MVC.AssemblyInfo.cs
+C:\Users\tuannguyenanh\source\repos\ASPNETCore2MVC\ASPNETCore2MVC\obj\Debug\netcoreapp2.0\ASPNETCore2MVC.dll
+C:\Users\tuannguyenanh\source\repos\ASPNETCore2MVC\ASPNETCore2MVC\obj\Debug\netcoreapp2.0\ASPNETCore2MVC.pdb
+C:\Users\tuannguyenanh\source\repos\ASPNETCore2MVC\ASPNETCore2MVC\obj\Debug\netcoreapp2.0\ASPNETCore2MVC.csprojResolveAssemblyReference.cache
