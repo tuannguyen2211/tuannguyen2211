@@ -13133,11 +13133,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tuannguyenanh\\source\\repos\\ASPNETCore2MVC\\ASPNETCore2MVC\\ASPNETCore2MVC.csproj",
+      "projectUniqueName": "D:\\Projects\\tuannguyen2211\\ASPNETCore2MVC\\ASPNETCore2MVC.csproj",
       "projectName": "ASPNETCore2MVC",
-      "projectPath": "C:\\Users\\tuannguyenanh\\source\\repos\\ASPNETCore2MVC\\ASPNETCore2MVC\\ASPNETCore2MVC.csproj",
+      "projectPath": "D:\\Projects\\tuannguyen2211\\ASPNETCore2MVC\\ASPNETCore2MVC.csproj",
       "packagesPath": "C:\\Users\\tuannguyenanh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tuannguyenanh\\source\\repos\\ASPNETCore2MVC\\ASPNETCore2MVC\\obj\\",
+      "outputPath": "D:\\Projects\\tuannguyen2211\\ASPNETCore2MVC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
