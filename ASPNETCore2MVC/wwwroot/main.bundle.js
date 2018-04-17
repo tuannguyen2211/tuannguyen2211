@@ -149,15 +149,27 @@ var routes = [
             },
             {
                 path: 'employee',
-                component: employee_list_component_1.EmployeeListComponent
+                component: employee_list_component_1.EmployeeListComponent,
+                "canActivate": [auth_guard_1.AuthorizationGuard],
+                "data": {
+                    'listRoles': ["BA"]
+                }
             },
             {
                 path: 'employee/add',
-                component: employee_cr_component_1.EmployeeCrComponent
+                component: employee_cr_component_1.EmployeeCrComponent,
+                "canActivate": [auth_guard_1.AuthorizationGuard],
+                "data": {
+                    'listRoles': ["BA"]
+                }
             },
             {
                 path: 'employee/edit/:id',
-                component: employee_cr_component_1.EmployeeCrComponent
+                component: employee_cr_component_1.EmployeeCrComponent,
+                "canActivate": [auth_guard_1.AuthorizationGuard],
+                "data": {
+                    'listRoles': ["BA"]
+                }
             },
             {
                 path: '401',
@@ -662,7 +674,7 @@ module.exports = ""
 /***/ "./src/app/employee/employee-list/employee-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Employee List</h2>\r\n\r\n<p>  <button class=\"btn-success\" [routerLink]=\"['/employee/add']\">Create new</button></p>\r\n<!--<table class=\"table table-striped\" *ngIf=\"empList\">\r\n  <thead>\r\n    <tr>\r\n      <th>ID</th>\r\n      <th>Name</th>\r\n      <th>Gender</th>\r\n      <th>Department</th>\r\n      <th>City</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr *ngFor=\"let emp of empList\">\r\n      <td>{{emp.id}}</td>\r\n      <td>{{emp.name}}</td>\r\n      <td>{{emp.gender}}</td>\r\n      <td>{{emp.department}}</td>\r\n      <td>{{emp.city}}</td>\r\n      <td>\r\n        <a [routerLink]=\"['/employee/edit/', emp.id]\">Edit</a> |\r\n        <a [routerLink]=\"\" (click)=\"delete(emp.id)\">Delete</a>\r\n      </td>\r\n    </tr>\r\n  </tbody>\r\n</table>-->\r\n<!--<input type=\"text\" class=\"form-control\" id=\"filterName\" name=\"filterName\" (ngModelChange)=\"filter()\"/>-->\r\n<kendo-grid [data]=\"gridView\"\r\n            [pageSize]=\"gridState.take\"\r\n            [skip]=\"gridState.skip\"\r\n            [sort]=\"gridState.sort\"\r\n            [filter] =\"gridState.filter\"\r\n            [filterable]=\"true\"\r\n            [pageable]=\"true\"\r\n            [sortable]=\"true\"\r\n            (dataStateChange)=\"onStateChange($event)\"\r\n            [height]=\"350\">\r\n  <kendo-grid-column field=\"name\" title=\"Name\" width=\"250\"></kendo-grid-column>\r\n  <kendo-grid-column field=\"email\" title=\"Email\" width=\"230\"></kendo-grid-column>\r\n  <kendo-grid-column field=\"city\" title=\"City\" width=\"130\"></kendo-grid-column>\r\n  <kendo-grid-column field=\"department\" title=\"Department\" width=\"130\"></kendo-grid-column>\r\n  <kendo-grid-column field=\"phone\" title=\"Phone\" width=\"80\"></kendo-grid-column>\r\n  <kendo-grid-column field=\"gender\" title=\"Gender\" width=\"80\">  </kendo-grid-column>\r\n  <kendo-grid-column field=\"id\" title=\"Action\" width=\"100\" [sortable]=\"false\" [filterable]=\"false\">\r\n    <ng-template kendoGridCellTemplate let-dataItem>\r\n      <button class=\"btn-success\" [routerLink]=\"['/employee/edit/', dataItem.id]\">Edit</button>\r\n      <button class=\"btn-success\" [routerLink]=\"\" (click)=\"delete(dataItem.id)\">Remove</button>\r\n    </ng-template>\r\n  </kendo-grid-column>\r\n</kendo-grid>\r\n"
+module.exports = "<h2>Employee List</h2>\r\n\r\n<p>  <button class=\"btn-success\" [routerLink]=\"['/employee/add']\">Create</button></p>\r\n<!--<table class=\"table table-striped\" *ngIf=\"empList\">\r\n  <thead>\r\n    <tr>\r\n      <th>ID</th>\r\n      <th>Name</th>\r\n      <th>Gender</th>\r\n      <th>Department</th>\r\n      <th>City</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr *ngFor=\"let emp of empList\">\r\n      <td>{{emp.id}}</td>\r\n      <td>{{emp.name}}</td>\r\n      <td>{{emp.gender}}</td>\r\n      <td>{{emp.department}}</td>\r\n      <td>{{emp.city}}</td>\r\n      <td>\r\n        <a [routerLink]=\"['/employee/edit/', emp.id]\">Edit</a> |\r\n        <a [routerLink]=\"\" (click)=\"delete(emp.id)\">Delete</a>\r\n      </td>\r\n    </tr>\r\n  </tbody>\r\n</table>-->\r\n<!--<input type=\"text\" class=\"form-control\" id=\"filterName\" name=\"filterName\" (ngModelChange)=\"filter()\"/>-->\r\n<kendo-grid [data]=\"gridView\"\r\n            [pageSize]=\"gridState.take\"\r\n            [skip]=\"gridState.skip\"\r\n            [sort]=\"gridState.sort\"\r\n            [filter] =\"gridState.filter\"\r\n            [filterable]=\"true\"\r\n            [pageable]=\"true\"\r\n            [sortable]=\"true\"\r\n            (dataStateChange)=\"onStateChange($event)\"\r\n            [height]=\"350\">\r\n  <kendo-grid-column field=\"name\" title=\"Name\" width=\"250\"></kendo-grid-column>\r\n  <kendo-grid-column field=\"email\" title=\"Email\" width=\"230\"></kendo-grid-column>\r\n  <kendo-grid-column field=\"city\" title=\"City\" width=\"130\"></kendo-grid-column>\r\n  <kendo-grid-column field=\"department\" title=\"Department\" width=\"130\"></kendo-grid-column>\r\n  <kendo-grid-column field=\"phone\" title=\"Phone\" width=\"80\"></kendo-grid-column>\r\n  <kendo-grid-column field=\"gender\" title=\"Gender\" width=\"80\">  </kendo-grid-column>\r\n  <kendo-grid-column field=\"id\" title=\"Action\" width=\"100\" [sortable]=\"false\" [filterable]=\"false\">\r\n    <ng-template kendoGridCellTemplate let-dataItem>\r\n      <button class=\"btn-success\" [routerLink]=\"['/employee/edit/', dataItem.id]\">Edit</button>\r\n      <button class=\"btn-success\" [routerLink]=\"\" (click)=\"delete(dataItem.id)\">Remove</button>\r\n    </ng-template>\r\n  </kendo-grid-column>\r\n</kendo-grid>\r\n"
 
 /***/ }),
 

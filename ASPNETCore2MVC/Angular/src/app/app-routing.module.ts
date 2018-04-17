@@ -36,15 +36,27 @@ const routes: Routes = [
       },
       {
         path: 'employee',
-        component: EmployeeListComponent
+        component: EmployeeListComponent,
+        "canActivate": [AuthorizationGuard],
+        "data": {
+          'listRoles': ["BA"]
+        }
       },
       {
         path: 'employee/add',
-        component: EmployeeCrComponent
+        component: EmployeeCrComponent,
+        "canActivate": [AuthorizationGuard],
+        "data": {
+          'listRoles': ["BA"]
+        }
       },
       {
         path: 'employee/edit/:id',
-        component: EmployeeCrComponent
+        component: EmployeeCrComponent,
+        "canActivate": [AuthorizationGuard],
+        "data": {
+          'listRoles': ["BA"]
+        }
       },
       {
         path: '401',
