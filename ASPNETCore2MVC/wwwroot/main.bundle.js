@@ -1217,7 +1217,7 @@ module.exports = ".login{\r\n  text-align:center;\r\n}\r\n"
 /***/ "./src/app/user/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n  <h2>Login</h2>\r\n  <form name=\"form\" (ngSubmit)=\"login(f)\" #f=\"ngForm\" novalidate>\r\n    <div class=\"form-group\" [ngClass]=\"{ 'has-error': f.submitted && !username.valid }\">\r\n      <label for=\"username\">Username</label>\r\n      <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"credentials.username\" #username=\"ngModel\" required />\r\n      <div *ngIf=\"f.submitted && !username.valid\" class=\"help-block\">Username is required</div>\r\n    </div>\r\n    <div class=\"form-group\" [ngClass]=\"{ 'has-error': f.submitted && !password.valid }\">\r\n      <label for=\"password\">Password</label>\r\n      <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"credentials.password\" #password=\"ngModel\" placeholder=\"Password\" required />\r\n      <div *ngIf=\"f.submitted && !password.valid\" class=\"help-block\">Password is required</div>\r\n    </div>\r\n    <div *ngIf=\"errors\" class=\"alert alert-danger\" role=\"alert\">\r\n      <strong>Oops!</strong> {{errors}}\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <button [disabled]=\"loading\" class=\"btn btn-primary\">Login</button>\r\n    </div>\r\n  </form>\r\n</div>\r\n"
+module.exports = "\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n  <h2>Login</h2>\r\n  <form name=\"form\" (ngSubmit)=\"login(f)\" #f=\"ngForm\" novalidate>\r\n    <div class=\"form-group\" [ngClass]=\"{ 'has-error': f.submitted && !username.valid }\">\r\n      <label for=\"username\">Username</label>\r\n      <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"credentials.username\" #username=\"ngModel\" required />\r\n      <div *ngIf=\"f.submitted && !username.valid\" class=\"help-block\">Username is required</div>\r\n    </div>\r\n    <div class=\"form-group\" [ngClass]=\"{ 'has-error': f.submitted && !password.valid }\">\r\n      <label for=\"password\">Password</label>\r\n      <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"credentials.password\" #password=\"ngModel\" placeholder=\"Password\" required />\r\n      <div *ngIf=\"f.submitted && !password.valid\" class=\"help-block\">Password is required</div>\r\n    </div>\r\n    <div *ngIf=\"errors\" class=\"alert alert-danger\" role=\"alert\">\r\n      {{errors}}\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <button [disabled]=\"loading\" class=\"btn btn-primary\">Login</button>\r\n    </div>\r\n  </form>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1260,24 +1260,13 @@ var LoginComponent = /** @class */ (function () {
             this.userService.login(value.username, value.password)
                 .subscribe(function (result) {
                 if (result.access_token) {
-                    //var helper = new JwtHelper();
-                    //let user: any = result;//response.json();
-                    //var payLoad = JSON.parse(atob(result.access_token.split('.')[1]));
-                    //user.id = payLoad["Id"];
-                    //user.joingDate = payLoad["date"];
-                    //user.fullName = payLoad["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"];
-                    //user.userName = value.username;
-                    //if (user && user.access_token) {
-                    //  // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    //  localStorage.setItem(this._userAuthStoreKey, JSON.stringify(user));
-                    //}
                     _this.router.navigate(['/home']);
                     //this.router.navigate(['/MyProfile', { fullName: this.fullName }])
                 }
                 else {
                     _this.errors = result.message;
                 }
-            }, function (error) { return _this.errors = error; });
+            }, function (error) { return _this.errors = error.error; });
         }
     };
     LoginComponent = __decorate([

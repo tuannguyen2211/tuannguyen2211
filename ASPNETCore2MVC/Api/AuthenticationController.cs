@@ -75,11 +75,7 @@ namespace ASPNETCore2MVC.Api
                         });
                         //Or Redirect to userProfile page
                     }
-                    return Json(new
-                    {
-                        access_token = "",
-                        message = "User name or password is incorrect"
-                    });
+                    return BadRequest("Username or Password do not match");
                 }
                 catch (Exception ex)
                 {

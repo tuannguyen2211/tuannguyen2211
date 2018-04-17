@@ -31,17 +31,6 @@ export class LoginComponent implements OnInit {
         .subscribe(
         result => {
           if (result.access_token) {
-            //var helper = new JwtHelper();
-            //let user: any = result;//response.json();
-            //var payLoad = JSON.parse(atob(result.access_token.split('.')[1]));
-            //user.id = payLoad["Id"];
-            //user.joingDate = payLoad["date"];
-            //user.fullName = payLoad["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"];
-            //user.userName = value.username;
-            //if (user && user.access_token) {
-            //  // store user details and jwt token in local storage to keep user logged in between page refreshes
-            //  localStorage.setItem(this._userAuthStoreKey, JSON.stringify(user));
-            //}
             this.router.navigate(['/home'])
             //this.router.navigate(['/MyProfile', { fullName: this.fullName }])
           }
@@ -49,7 +38,7 @@ export class LoginComponent implements OnInit {
             this.errors = result.message;
           }
         },
-        error => this.errors = error);
+        error => this.errors = error.error);
       }
     }
   }
