@@ -47,8 +47,8 @@ namespace ASPNETCore2MVC
                     ValidateIssuer = true,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    ValidIssuer = "http://localhost:49222/",
-                    ValidAudience = "http://localhost:49222/",
+                    ValidIssuer = Configuration.GetValue<string>("Issuer"),
+                    ValidAudience = Configuration.GetValue<string>("Audience"),
                     IssuerSigningKey = new SymmetricSecurityKey(
                     Encoding.UTF8.GetBytes(jwtSecurityKey))
                 };
